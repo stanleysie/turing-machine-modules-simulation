@@ -1,0 +1,19 @@
+1) shR 1
+2) const 1
+3) shR 1
+4) copy 1
+5) copy 2
+6) shL 2
+7) mult
+8) shR 1
+9) copy 3
+10) shL 2
+11) ifEQ 17
+12) const 1
+13) shL 1
+14) add
+15) shR 1
+16) goto 4
+17) shL 1
+18) move 1 1
+19) halt

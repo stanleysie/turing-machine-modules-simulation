@@ -1,0 +1,26 @@
+1) shR 3
+2) copy 3
+3) copy 3
+4) shL 2
+5) ifGT 16
+6) copy 2
+7) copy 2
+8) shL 2
+9) ifGT 20
+10) copy 3
+11) copy 3
+12) shL 2
+13) ifGT 24
+14) shL 3
+15) halt
+16) shL 3
+17) swap
+18) shR 3
+19) goto 6
+20) shL 2
+21) swap
+22) shR 2
+23) goto 10
+24) shL 3
+25) swap
+26) goto 15

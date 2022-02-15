@@ -1,0 +1,12 @@
+1) shR 1
+2) copy 1
+3) const 1
+4) shL 1
+5) ifEQ 12
+6) copy 1
+7) const 1
+8) shL 1
+9) monus
+10) shR 1
+11) goto 2
+12) halt

@@ -1,0 +1,2 @@
+1) monus
+2) halt

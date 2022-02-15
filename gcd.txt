@@ -1,0 +1,29 @@
+1) shR 2
+2) copy 2
+3) copy 2
+4) shL 2
+5) ifEQ 26
+6) copy 2
+7) copy 2
+8) shL 2
+9) ifGT 17
+10) copy 1
+11) copy 3
+12) shL 2
+13) monus
+14) move 1 1
+15) shL 1
+16) goto 1
+17) copy 2
+18) copy 2
+19) shL 2
+20) monus
+21) shR 1
+22) copy 2
+23) shL 2
+24) move 2 2
+25) goto 1
+26) copy 2
+27) shL 1
+28) move 2 1
+29) halt
