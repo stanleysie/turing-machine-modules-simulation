@@ -1,2 +1,3 @@
-1) monus
-2) halt
+1) shR 2
+2) move 2 1
+3) halt

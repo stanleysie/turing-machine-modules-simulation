@@ -12,7 +12,6 @@ class TuringMachine:
 		self.pointer = None
 		self.debug = False
 
-
 	def set_input_string(self, input_string):
 		self.input_string = input_string
 		self.pointer = 0
@@ -281,24 +280,25 @@ class TuringMachine:
 			for i in range(k-1):
 				commands.append(f'right (1/1,{len(commands)+1}) (#/#,{len(commands)+2})')
 			commands.append(f'right (1/1,{len(commands)+1}) (#/x,{len(commands)+2})')
-			for i in range(k):
+			for i in range(k-1):
 				commands.append(f'left (1/1,{len(commands)+1}) (#/#,{len(commands)+2})')
-			for i in range(j-1):
-				commands.append(f'left (1/x,{len(commands)+1}) (#/x,{len(commands)+2})')
-			commands.append(f'left (1/x,{len(commands)+1}) (#/#,{len(commands)+2})')
-			checkpoint = len(commands)+1
-			commands.append(f'right (x/x,{len(commands)+1}) (#/#,{len(commands)+2})')
-			commands.append(f'right (a/a,{len(commands)+1}) (1/a,{len(commands)+2}) (#/a,{len(commands)+5}) (x/#,{len(commands)+8})')
-			commands.append(f'left (a/a,{len(commands)+1}) (#/#,{len(commands)+2}) (1/1,{len(commands)+3})')
-			commands.append(f'left (x/x,{len(commands)+1}) (#/#,{len(commands)+2}) (1/1,{len(commands)+2})')
-			commands.append(f'right (x/1,{checkpoint}) (#/1,{checkpoint+1}) (a/1,{checkpoint+1})')
-			commands.append(f'left (a/a,{len(commands)+1}) (#/#,{len(commands)+2})')
-			commands.append(f'left (x/x,{len(commands)+1}) (#/#,{len(commands)+2}) (1/1,{len(commands)+2})')
-			commands.append(f'right (x/#,{checkpoint})')
-			commands.append(f'left (a/#,{len(commands)+1}) (#/#,{len(commands)+2}) (1/1,{len(commands)+2})')
-			commands.append(f'left (x/#,{len(commands)+1}) (1/1,{len(commands)+2}) (#/#,{len(commands)+2})')
-			for i in range(k):
+			commands.append(f'left (1/1,{len(commands)+1}) (#/#,{len(commands)+2})')
+			commands.append(f'right (1/a,{len(commands)+2}) (#/b,{len(commands)+2})')
+			commands.append(f'left (#/#,{len(commands)+2})')
+			for i in range(j):
 				commands.append(f'left (1/1,{len(commands)+1}) (#/#,{len(commands)+2})')
+			commands.append(f'right (1/a,{len(commands)+2}) (#/b,{len(commands)+2})')
+			commands.append(f'right (1/1,{len(commands)+1}) (#/#,{len(commands)+1}) (a/1,{len(commands)+2}) (b/#,{len(commands)+2})')
+			commands.append(f'right (1/a,{len(commands)+2}) (#/b,{len(commands)+4}) (x/#,{len(commands)+7})')
+			checkpoint = len(commands)
+			commands.append(f'left (1/1,{len(commands)+1}) (#/#,{len(commands)+1}) (a/a,{len(commands)+2}) (b/b,{len(commands)+2})')
+			commands.append(f'right (1/a,{len(commands)+4}) (#/a,{len(commands)+4})')
+			commands.append(f'left (1/1,{len(commands)+1}) (#/#,{len(commands)+1}) (a/a,{len(commands)+2}) (b/b,{len(commands)+2})')
+			commands.append(f'right (1/b,{len(commands)+2}) (#/b,{len(commands)+2})')
+			commands.append(f'right (1/1,{len(commands)+1}) (#/#,{len(commands)+1}) (a/#,{checkpoint}) (b/#,{checkpoint})')
+			commands.append(f'left (1/#,{len(commands)+1}) (#/#,{len(commands)+1}) (a/1,{len(commands)+2}) (b/#,{len(commands)+2})')
+			commands.append(f'left (a/1,{len(commands)+1}) (b/#,{len(commands)+1}) (#/#,{len(commands)+2})')
+
 		commands.append('accept')
 		self.process_commands(commands)
 		self.input_string = self.run_turing(self.input_string)
@@ -455,7 +455,7 @@ TM = TuringMachine()
 
 try:
     # load from a file
-    with open('sort_3_numbers.txt') as f:
+    with open('fibonacci.txt') as f:
         lines = f.readlines()
         print('=== PROGRAM ===')
         for i in range(len(lines)):
