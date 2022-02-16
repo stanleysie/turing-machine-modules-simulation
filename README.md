@@ -7,6 +7,7 @@ The program is tested with the following test cases:
 3. Printing numbers in ascending order
 4. Printing numbers in descending order
 5. Sorting three numbers
+6. Generating Fibonacci sequence begin with 1
 
 ## **Running**
 ```
